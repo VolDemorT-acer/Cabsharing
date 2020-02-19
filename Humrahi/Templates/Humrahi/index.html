@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'Humrahi\style.css' %}">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <title>Document</title>
@@ -62,21 +64,21 @@
                     </ol>
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img src="1 ZmsPHPxgq3exxwTp58Lqpw.jpeg" alt="First slide" style="width: 100%;">
+                            <img src= "{% static 'Humrahi\images\1 ZmsPHPxgq3exxwTp58Lqpw.jpeg'  %}" alt="First slide" style="width: 100%;">
                             <div class="carousel-caption d-none d-md-block">
                                 <h3>Title</h3>
                                 <p>Description</p>
                             </div>
                         </div>
                         <div class="carousel-item justify-content-center">
-                            <img src="taxi_15eee4fa-d635-11e6-a473-4fa7bf176867.jpg" alt="Second slide" style="width: 100%;">
+                            <img src="{% static 'Humrahi\images\taxi_15eee4fa-d635-11e6-a473-4fa7bf176867.jpg' %}" alt="Second slide" style="width: 100%;">
                             <div class="carousel-caption d-none d-md-block">
                                 <h3>Title</h3>
                                 <p>Description</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="main-qimg-f5148a9285fe895a4b56e078e7f0dadc.jfif" alt="Third slide" style="width: 100%;">
+                            <img src="{% static 'Humrahi\images\main-qimg-f5148a9285fe895a4b56e078e7f0dadc.jfif' %}" alt="Third slide" style="width: 100%;">
                             <div class="carousel-caption d-none d-md-block">
                                 <h3>Title</h3>
                                 <p>Description</p>
