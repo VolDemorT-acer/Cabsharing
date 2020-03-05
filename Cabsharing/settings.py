@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Humrahi'
+    'Humrahi',
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware'
 ]
 
 ROOT_URLCONF = 'Cabsharing.urls'
@@ -63,6 +65,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -100,6 +104,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS=(
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.open_id.OpenIdAuth',
+   'social_core.backends.google.GoogleOpenId',
+    
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -117,5 +132,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+LOGIN_URL ='login'
+LOGOUT_URL='logout'
+LOGIN_REDIRECT_URL='index'
+SOCIAL_AUTH_GITHUB_KEY='ba6fbdc2d5def8fd295a'
+SOCIAL_AUTH_GITHUB_SECRET='031ee224412d0b357eb83d57c1f757bf948a4b51'
+SOCIAL_AUTH_FACEBOOK_KEY='203842777356572'
+SOCIAL_AUTH_FACEBOOK_SECRET='5f93dd0a6793a9fab24a011ad1fc7ebf'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='252174418134-9bbbkte2gqrvvpd0p90afuo2gnvjimco.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='XX38SHevso4fq9f_DOMtmjpm'
 
 STATIC_URL = '/static/'
