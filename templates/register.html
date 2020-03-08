@@ -1,23 +1,56 @@
 {% extends 'base.html' %}
 {% block content %}
-    <form action ="register" method ="POST" >
-        {% csrf_token %}
-
-        
-        <input type="text" name ="first_name" placeholder ="First name" ><br>
-        <input type="text" name ="last_name" placeholder ="Last name" ><br>
-        <input type="text" name ="username" placeholder ="Username" ><br>
-        <input type="email" name ="email" placeholder ="email" ><br>
-        <input type="password" name ="password" placeholder ="Passsword" ><br>
-        <input type="password" name ="cnf_pass"  placeholder ="Confirm Password"><br>
-        <input type ="Submit" name="signup" placeholder="Sign Up"><br>
-    </form>
-   
-    <div>
-        {% for message in messages %}
-        <h3>{{ message }}</h3>
-
-        {% endfor %}
+{% load static%}
+<head><link rel="stylesheet" href="{% static 'css/reg.css' %}"></head>
+<div class="container-fluid">
+<div class="row box">
+    <div class="col-lg-6 col-sm-6 p-2  svg">
+        <img  src="{% static "img\undraw_active_options_8je6-1.png" %}"></img>
     </div>
+    <div class="col-lg-6 col-sm-6 p-3  form justify-content-between align-center">
+    
+    <div class="d-flex flex-column justify-content-between align-center look">
+        <div class=" flex-row img justify-content-center align-center">
+            <img src="{% static 'img\undraw_profile_pic_ic5t-1.png' %}" class="face"></img><br>
+        </div>
+        <div class="flex-column justify-content-between align-center log">
+        <form action ="" method ="POST" class=" flex-row justify-content-between align-center form-group" >
+            {% csrf_token %}
+           <div class="form-group">
+             <label for=""></label>
+             <input type="text" name="username" id="" class="form-control" placeholder="Username" >
+           </div>
+           <div class="form-group">
+             <label for=""></label>
+             <input type="email" name="email" id="" class="form-control" placeholder="Email" >
+           </div>
+           <div class="form-group">
+             <label for=""></label>
+             <input type="password" name="password" id="" class="form-control" placeholder="Password" >
+           </div>
+           <div class="form-group">
+             <label for=""></label>
+             <input type="password" name="cnf_pass" id="" class="form-control" placeholder="confirm Password" >
+           </div>
+          
+           <button type="submit" class="btn btn-success b3">Submit</button><br>
+           <h2 class="align-center">--OR--</h2>
+           <div class="d-flex flex-row">
+           <button type="submit" class="btn btn-success b1 "><a class="text-white" href="{% url 'Humrahi:social:begin' 'github' %}">Github login</a><br></button><br>
+           <button type="submit" class="btn btn-success b2 "><a class="text-white" href="{% url 'Humrahi:social:begin' 'google-oauth2' %}">Google login</a><br></button><br>
+           </div>
+           
+         </form>
+         </div>
+         
+      
+    </div>
+</div>
+</div>
+ {% for message in messages %}
+         <div>
+          <h3>{{ message }}</h3>
+          </div>
+{% endfor %}
 {% endblock%}
     

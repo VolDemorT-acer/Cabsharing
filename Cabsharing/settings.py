@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Humrahi',
-    'social_django'
+    'social_django',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -80,8 +82,13 @@ WSGI_APPLICATION = 'Cabsharing.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'cabsharing',
+        'USER' : 'postgres' ,
+        'PASSWORD': '1234' ,
+        'HOST':'localhost'
     }
 }
 
@@ -132,14 +139,21 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-LOGIN_URL ='login'
-LOGOUT_URL='logout'
-LOGIN_REDIRECT_URL='index'
+LOGIN_URL ='Humrahi:login'
+LOGOUT_URL='Humrahi:logout'
+LOGIN_REDIRECT_URL='Humrahi:index'
 SOCIAL_AUTH_GITHUB_KEY='ba6fbdc2d5def8fd295a'
 SOCIAL_AUTH_GITHUB_SECRET='031ee224412d0b357eb83d57c1f757bf948a4b51'
 SOCIAL_AUTH_FACEBOOK_KEY='203842777356572'
 SOCIAL_AUTH_FACEBOOK_SECRET='5f93dd0a6793a9fab24a011ad1fc7ebf'
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='252174418134-9bbbkte2gqrvvpd0p90afuo2gnvjimco.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='XX38SHevso4fq9f_DOMtmjpm'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='252174418134-6pcrk1q1msj7ivd0bu43dps9sqiq451s.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='FLGQavDqeO0i6PuWXDA8Tgw7'
 
+SOCIAL_AUTH_URL_NAMESPACE = "Humrahi:social"
+
+AUTH_USER_MODEL='Humrahi.User'
 STATIC_URL = '/static/'
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'static')
+]
+STATIC_ROOT =os.path.join(BASE_DIR,'assets')

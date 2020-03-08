@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'Humrahi\style.css' %}">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Bellota&display=swap" rel="stylesheet"> 
     <title>Document</title>
 </head>
 <body>
-    <div class="container-fluid" id="body">
-    <div class="container-fluid">
+    <div class="container-fluid mb-3" id="body">
+    <div class="container-fluid mb-2">
     <nav class="navbar navbar-expand-lg navbar-white bg-dark text-white">
     <a class="navbar-brand text-white" href="#"><h3><i class="fa fa-car" aria-hidden="true"></i>Humrahi</h3></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,8 +34,8 @@
     Join Us
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <a class="dropdown-item" href="login">login</a>
-    <a class="dropdown-item" href="register">Register</a>
+    <a class="dropdown-item" href="{% url 'Humrahi:login' %}">login</a>
+    <a class="dropdown-item" href="{% url 'Humrahi:register' %}">Register</a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="logout">Contact Us</a>
     </div>
@@ -54,18 +54,20 @@
 
 
     
-    <div class="container p-3 mb-3 justify-content-center">
-        <div class="row p-3 mb-2 justify-content-center align-center">
+    <div class="container-fluid p-3  mb-3  " style="height:110vh ;width:100vw;">
+    
         {% block content %}
 
         {% endblock %}
-        </div>
+    
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
     
 </body>
 </html>
